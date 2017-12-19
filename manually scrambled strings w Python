@@ -1,0 +1,26 @@
+##Cameron Chromiak
+##Nov 17
+##Python v 3.4.3
+##The most simple method (that I could create) of manualy scrambling strings using Python - as
+##apposed to using the built-in shuffle() method. I could not find this on
+##the internet so I had to make it. Feel free to use it however you wish.
+
+
+from random import randint 
+
+def scrambleWord(userWord):
+    lst = list(userWord)#convert userWord to list so it can be manipulated
+    #print(lst) test to see if converted to list
+    for index in range(len(lst)):
+        ranIndex = randint(0,len(userWord)-1)#random index within len of word
+        ranPosition = lst[ranIndex]#random position using a random index from word
+        lst.pop(ranIndex) #remove the randomly selected positions so they are not printed twice
+        lst.insert(0,ranPosition)#re-insert
+              
+    print(''.join(lst))
+
+
+def main():
+    userWord = input("Enter the word: ") 
+    scrambleWord(userWord)
+main()
